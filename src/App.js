@@ -10,6 +10,7 @@ function App() {
   return (
     
       <div>
+       <Router> 
         <AppBar position='static'>
         <Typography
             variant="h6"
@@ -21,15 +22,15 @@ function App() {
           </Typography>
           <Stack direction='row' spacing={2}>
             <Button color='inherit'>Home</Button>
-            <Button color='inherit'>Vocabulary</Button>
-            <Button color='inherit'>Idioms</Button>
+            <Button color='inherit'><Link to='/vocabulary' style={{textDecoration: 'none', color: 'white'}}>Vocabulary</Link></Button>
+            <Button color='inherit'><Link to={'/idioms'} style={{textDecoration: 'none', color: 'white'}}>Idioms</Link></Button>
           </Stack>  
         </AppBar> 
 
-        <Link to={'/vocabulary'}>Vocabulary</Link>
-        <Link to={'/idioms'}>Idioms</Link>
+        
+        
 
-        <Router>
+        
           <Routes>
             <Route path="/vocabulary" element={<Vocabulary />} />
             <Route path="/idioms" element={<Idioms />} />  

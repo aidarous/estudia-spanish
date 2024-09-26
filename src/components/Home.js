@@ -16,12 +16,14 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
+import Grammar from './Grammar';
 import Vocabulary from './Vocabulary';
 import Idioms from './Idioms';
+import Travel from './Travel';
 import Login from './Login';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'Vocabulary', 'Idioms','Login'];
+const navItems = ['Home','Grammar', 'Vocabulary', 'Idioms','Travel','Login'];
 
 function Home(props) {
   const { window } = props;
@@ -105,8 +107,10 @@ function Home(props) {
       </Box>
     </Box>
     <Routes>
+            <Route path="/grammar" element={<Grammar />} />
             <Route path="/vocabulary" element={<Vocabulary />} />
             <Route path="/idioms" element={<Idioms />} />   
+            <Route path="/travel" element={<Travel />} />   
             <Route path="/login" element={<Login />} />   
            </Routes> 
          

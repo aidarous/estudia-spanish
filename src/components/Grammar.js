@@ -16,6 +16,8 @@ import { Box, CardContent, Typography } from '@mui/material'
 
 const Grammar = () => {
   const [nounData, setnounData] = useState([]);
+  const [verbData, setverbData] = useState([]);
+  const [adjectiveData, setadjectiveData] = useState([]);
 
   useEffect(() =>{
 
@@ -33,13 +35,63 @@ const Grammar = () => {
     };
     fetchNounData();
   },[])
+
+  useEffect(() =>{
+
+    const fetchVerbData = async () => {
+      const parentDocRef = doc(db, "grammar", "unit1");
+      const subColRef = collection(parentDocRef,"verbs")
+      
+      const snapshot = await getDocs(subColRef); 
+      const data = snapshot.docs.map(doc =>({
+        id: doc.id,
+        ...doc.data()
+      }));
+      
+      setverbData(data);
+    };
+    fetchVerbData();
+  },[])
+
+  useEffect(() =>{
+
+    const fetchAdjectiveData = async () => {
+      const parentDocRef = doc(db, "grammar", "unit1");
+      const subColRef = collection(parentDocRef,"adjectives")
+      
+      const snapshot = await getDocs(subColRef); 
+      const data = snapshot.docs.map(doc =>({
+        id: doc.id,
+        ...doc.data()
+      }));
+      
+      setadjectiveData(data);
+    };
+    fetchAdjectiveData();
+  },[])
   return (
     <div>
       <h1>Grammar</h1>
       <div>
-        {nounData.map((nouns)=>(
-            <p key={nouns.id}>{nouns.noun} - {nouns.translation}</p>
-          ))}
+        <h2>Unit 1</h2>
+        <div>
+          <h3>Nouns</h3>
+          {nounData.map((nouns)=>(
+              <p key={nouns.id}>{nouns.noun} - {nouns.translation}</p>
+            ))}
+        </div>
+        <div>
+          <h3>Verbs</h3>
+          {verbData.map((verbs)=>(
+              <p key={verbs.id}>{verbs.verb} - {verbs.translation}</p>
+            ))}
+        </div>
+        <div>
+          <h3>Adjectives</h3>
+          {adjectiveData.map((adjectives)=>(
+              <p key={adjectives.id}>{adjectives.adjective} - {adjectives.translation}</p>
+            ))}
+        </div>
       </div>
     </div>
     

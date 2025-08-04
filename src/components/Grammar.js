@@ -70,7 +70,7 @@ const Grammar = () => {
     fetchAdjectiveData();
   },[])
   return (
-    <div>
+    <div className='box'>
       <h1>Grammar</h1>
       <div>
         <h2>Unit 1</h2>

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { db } from '../firebase/firebase.utils'
 import { getDocs, collection } from 'firebase/firestore'
 import { Box, CardContent, Typography } from '@mui/material'
+import '../App.css';
 
 const fetchFromFirestore = async () =>{
   const querySnapshot = await getDocs(collection(db, "travel"))
@@ -72,7 +73,7 @@ const toggleRestaurantPhrases = () =>{
   setShowRestaurantPhrases(!showRestaurantPhrases)
 }
   return (
-    <div>
+    <div className='box'>
       <h1>Travel</h1>
 
       <button onClick={toggleSurvivalPhrases}><h3> Survival phrases</h3></button>

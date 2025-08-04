@@ -24,7 +24,7 @@ const Idioms = () => {
   },[])
 
   return (
-    <div>
+    <div className='box'>
       <h1>Idioms</h1>
       <div>
       {idiomData.map((idiom)=>(

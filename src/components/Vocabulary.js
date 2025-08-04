@@ -24,7 +24,7 @@ const Vocabulary = () => {
   },[])
 
   return (
-    <div>
+    <div className='box'>
       <h1>Vocabulary</h1>
       <div>
       {vocabData.map((vocabulary)=>(

@@ -42,4 +42,4 @@ const Vocabulary = () => {
   )
 }
 
-export default Vocabulary
+export default Vocabulary;

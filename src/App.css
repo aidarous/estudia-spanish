@@ -2,3 +2,8 @@
 .box{
     margin: 2rem;
 }
+
+.landing-page{
+    object-fit: fill;
+    width: 100%;
+}

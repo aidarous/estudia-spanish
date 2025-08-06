@@ -3,6 +3,7 @@
 
 // import Vocabulary from './components/Vocabulary';
 // import Idioms from './components/Idioms';
+import Landingpage from '../assets/landingpage.jpg'
 
 function Home() {
 
@@ -27,7 +28,7 @@ function Home() {
           </Stack>  
         </AppBar>  */}
 
-      <h1>Welcome to Estudia Spanish</h1>
+      <img src={Landingpage} className='landing-page' alt='landingpage'/>
         
 
         

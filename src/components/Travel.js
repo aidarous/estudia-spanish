@@ -58,7 +58,7 @@ const Travel = () => {
       fetchData();
     })
 
-const [showSurvivalPhrases, setShowSurvivalPhrases] = useState(false)
+const [showSurvivalPhrases, setShowSurvivalPhrases] = useState(true)
 const [showDirections, setShowDirections] = useState(false)
 const [showRestaurantPhrases, setShowRestaurantPhrases] = useState(false)
 

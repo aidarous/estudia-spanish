@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { db } from '../firebase/firebase.utils'
 import { getDocs, collection } from 'firebase/firestore'
-import { Box, CardContent, Typography } from '@mui/material'
+import { Box, Button, CardContent, Typography } from '@mui/material'
 import '../App.css';
 
 const fetchFromFirestore = async () =>{
@@ -76,7 +76,10 @@ const toggleRestaurantPhrases = () =>{
     <div className='box'>
       <h1>Travel</h1>
 
-      <button onClick={toggleSurvivalPhrases}><h3> Survival phrases</h3></button>
+      <Button onClick={toggleSurvivalPhrases} 
+      variant='contained'
+      sx={{ width:200, fontSize: '.8rem'}}
+      ><h3> Survival phrases</h3></Button>
       <div>
         
         {showSurvivalPhrases && (
@@ -93,8 +96,12 @@ const toggleRestaurantPhrases = () =>{
           </div>
         )}
       </div>
+      <br />
       <div>
-        <button onClick={toggleDirections}><h3> Directions</h3></button>
+        <Button onClick={toggleDirections} 
+        variant='contained'
+        sx={{ width:200, fontSize:'.8rem' }}
+        ><h3> Directions</h3></Button>
         {showDirections && (
           <div>
             {directionsData.map((directions) => (
@@ -110,8 +117,12 @@ const toggleRestaurantPhrases = () =>{
         )}
 
       </div>
+      <br />
       <div>
-        <button onClick={toggleRestaurantPhrases}><h3>Restaurant</h3></button>
+        <Button onClick={toggleRestaurantPhrases} 
+        variant='contained'
+        sx={{ width:200, fontSize:'.8rem' }}
+        ><h3>Restaurant</h3></Button>
         {showRestaurantPhrases && (
           <div>
             {restaurantData.map((restaurant) => (

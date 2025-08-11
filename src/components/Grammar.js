@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 import { db } from '../firebase/firebase.utils'
 import { getDocs, collection, doc, snapshotEqual } from 'firebase/firestore'
-import { Box, CardContent, Typography } from '@mui/material'
+import { Button, Box, CardContent, Typography } from '@mui/material'
 
 // const fetchGrammarFromFirestore = async () =>{
 //   const querySnapshot = await getDocs(collection(db, "grammar"))
@@ -69,29 +69,50 @@ const Grammar = () => {
     };
     fetchAdjectiveData();
   },[])
+
+  const [showNounData, setShowNounData] = useState(true);
+  const [showVerbData, setShowVerbData] = useState(true);
+  const [showAdjectiveData, setShowAdjectiveData] = useState(true);
+
+  const toggleUnitOne = () =>{
+    setShowNounData(!showNounData)
+    setShowVerbData(!showVerbData)
+    setShowAdjectiveData(!showAdjectiveData)
+  }
+  
   return (
     <div className='box'>
       <h1>Grammar</h1>
       <div>
-        <h2>Unit 1</h2>
-        <div>
+        <Button
+        onClick={toggleUnitOne}
+        variant='contained'
+        sx={{ width:200, fontSize: '.8rem'}}
+        ><h3>Unit 1</h3></Button>
+        {showNounData && (
+          <div>
           <h3>Nouns</h3>
           {nounData.map((nouns)=>(
               <p key={nouns.id}>{nouns.noun} - {nouns.translation}</p>
             ))}
         </div>
-        <div>
+        )}
+        {showVerbData &&(
+          <div>
           <h3>Verbs</h3>
           {verbData.map((verbs)=>(
               <p key={verbs.id}>{verbs.verb} - {verbs.translation}</p>
             ))}
         </div>
-        <div>
+        )}
+        {showAdjectiveData &&(
+          <div>
           <h3>Adjectives</h3>
           {adjectiveData.map((adjectives)=>(
               <p key={adjectives.id}>{adjectives.adjective} - {adjectives.translation}</p>
             ))}
         </div>
+        )}
       </div>
     </div>
     

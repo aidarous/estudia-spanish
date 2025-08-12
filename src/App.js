@@ -36,8 +36,8 @@ function App(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        ESTUDIA SPANISH
+      <Typography variant="h6" sx={{ my: 2, }}>
+        <Link to={"/"} style={{ textDecoration:'none' }}>ESTUDIA SPANISH</Link>
       </Typography>
       <Divider />
       <List>
@@ -75,7 +75,7 @@ function App(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            ESTUDIA SPANISH
+            <Link to={'/'} style={{textDecoration: 'none', color: 'white' }}>ESTUDIA SPANISH</Link> 
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (

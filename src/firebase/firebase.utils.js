@@ -16,8 +16,14 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({
+  prompt: "select_account"
+})
 
 export {db};
+export const auth = getAuth();
+export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
 // const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
 //     const collectionRef = collection(db, collectionKey)

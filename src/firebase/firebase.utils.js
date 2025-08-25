@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { collection, query, getDocs, getFirestore } from "firebase/firestore";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from "firebase/auth"
+import { Email } from "@mui/icons-material";
 
 
 const firebaseConfig = {
@@ -24,6 +25,11 @@ provider.setCustomParameters({
 export {db};
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+
+  return await createAuthUserWithEmailAndPassword(auth, email, password);
+};
 
 // const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
 //     const collectionRef = collection(db, collectionKey)
